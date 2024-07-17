@@ -7,12 +7,13 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
-@Table(name = "roles")
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @Getter
 @Setter
-@FieldDefaults(level = AccessLevel.PRIVATE)
+@Table(name = "roles")
 public class Role implements Serializable {
 
     static final long serialVersionIUD = 1L;
@@ -23,5 +24,7 @@ public class Role implements Serializable {
     String nombre;
     @Column
     String descripcion;
+    @ManyToMany(mappedBy = "roles")
+    List<Usuario> Usuario;
 
 }
