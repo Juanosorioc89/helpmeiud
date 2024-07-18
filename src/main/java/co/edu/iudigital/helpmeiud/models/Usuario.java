@@ -24,7 +24,7 @@ public class Usuario implements Serializable {
     Long id;
     @Column(unique = true, length = 120)
     String username;
-    @Column(length = 120)
+    @Column(length = 120, nullable = false)
     String nombre;
     @Column(length = 120)
     String apellido;
