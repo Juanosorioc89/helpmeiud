@@ -36,4 +36,7 @@ public class CasoResponseDTO {
     String username;
 
     Long delitoId;
+
+    Long usuarioId;
+
 }

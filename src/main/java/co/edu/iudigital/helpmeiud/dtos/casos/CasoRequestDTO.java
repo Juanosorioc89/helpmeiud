@@ -33,4 +33,6 @@ public class CasoRequestDTO {
     String username;
 
     Long delitoId;
+
+    Long usuarioId;
 }
