@@ -17,6 +17,14 @@ import java.util.List;
 public class Role implements Serializable {
 
     static final long serialVersionIUD = 1L;
+
+    public Role(){
+
+    }
+
+    public Role(Long id){
+        this.id = id;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;

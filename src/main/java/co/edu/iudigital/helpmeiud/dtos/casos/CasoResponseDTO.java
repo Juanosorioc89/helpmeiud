@@ -1,6 +1,7 @@
 package co.edu.iudigital.helpmeiud.dtos.casos;
 
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import lombok.AccessLevel;
@@ -13,7 +14,9 @@ import lombok.experimental.FieldDefaults;
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Builder
-public class CasoResponseDTO {
+public class CasoResponseDTO implements Serializable {
+
+    static final long serialVersionUID = 1L;
 
     Long id;
 

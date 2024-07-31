@@ -1,6 +1,7 @@
 package co.edu.iudigital.helpmeiud.dtos.casos;
 
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import lombok.AccessLevel;
@@ -12,7 +13,9 @@ import lombok.experimental.FieldDefaults;
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 
-public class CasoRequestDTO {
+public class CasoRequestDTO implements Serializable {
+
+    static final long serialVersionUID = 1L;
 
     LocalDateTime fechaHora;
 

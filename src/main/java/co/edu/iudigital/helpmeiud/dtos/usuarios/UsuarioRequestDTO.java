@@ -1,13 +1,13 @@
 package co.edu.iudigital.helpmeiud.dtos.usuarios;
 
-import co.edu.iudigital.helpmeiud.models.Role;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -16,7 +16,7 @@ import java.util.List;
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Builder
-public class UsuarioRequestDTO {
+public class UsuarioRequestDTO implements Serializable {
 
     static final long serialVersionUID = 1L;
 
@@ -31,19 +31,16 @@ public class UsuarioRequestDTO {
 
     String password;
 
-    @JsonProperty("fecha de nacimiento")
+    @JsonProperty("fecha_nacimiento")
     LocalDate fechaNacimiento;
 
+    @JsonIgnore
     Boolean enable;
-
+    @JsonIgnore
     Boolean redSocial;
 
     String image;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name =  "roles_usuarios",
-            joinColumns = {@JoinColumn(name = "usuarios_id")},
-            inverseJoinColumns = {@JoinColumn(name = "roles_id")})
-    List<Role> roles;
+    @JsonIgnore
+    List<Long> roles;
 }
